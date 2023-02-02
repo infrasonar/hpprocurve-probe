@@ -22,4 +22,3 @@ Variable            | Default                        | Description
 ```
 docker build -t hpprocurve-probe . --no-cache
 ```
-# hpprocurve-probe
