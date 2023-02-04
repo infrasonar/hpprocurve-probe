@@ -15,4 +15,12 @@ async def check_system(
         check_config: dict):
 
     state = await get_data(asset, asset_config, check_config, QUERIES)
+    for item in state.get('hpLocalMemEntry', []):
+        total = item.get('hpLocalMemTotalBytes')
+        used = item.get('hpLocalMemAllocBytes')
+        try:
+            item['hpLocalMemPercentUsed'] = used / total * 100
+        except Exception:
+            pass
+
     return state
