@@ -3,6 +3,8 @@ from libprobe.asset import Asset
 from ..utils import get_data
 
 QUERIES = (
+    MIB_INDEX['HP-ICF-CHASSIS']['hpicfSensorEntry'],
+    MIB_INDEX['NETSWITCH-MIB']['hpLocalMemEntry'],
     MIB_INDEX['STATISTICS-MIB']['hpSwitchMiscStat'],
 )
 

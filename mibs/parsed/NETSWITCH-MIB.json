@@ -1,0 +1,547 @@
+{
+  "IMPORTS": [
+    [
+      "RFC1155-SMI",
+      [
+        "Counter"
+      ]
+    ],
+    [
+      "RFC-1212",
+      [
+        "OBJECT-TYPE"
+      ]
+    ],
+    [
+      "RFC1213-MIB",
+      [
+        "DisplayString"
+      ]
+    ],
+    [
+      "HP-ICF-OID",
+      [
+        "hpSwitch"
+      ]
+    ]
+  ],
+  "hpOpSystem": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpSwitch",
+      1
+    ]
+  },
+  "MacAddress": {
+    "tp": "OCTET STRING"
+  },
+  "hpBuf": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpOpSystem",
+      1
+    ]
+  },
+  "hpMsgBuf": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpBuf",
+      1
+    ]
+  },
+  "hpPktBuf": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpBuf",
+      2
+    ]
+  },
+  "hpMsgBufTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF HpMsgBufEntry"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBuf",
+      1
+    ]
+  },
+  "hpMsgBufEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "HpMsgBufEntry"
+    },
+    "index": [
+      "hpMsgBufSlotIndex"
+    ],
+    "value": [
+      "hpMsgBufTable",
+      1
+    ]
+  },
+  "HpMsgBufEntry": {
+    "tp": "SEQUENCE"
+  },
+  "hpMsgBufSlotIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      1
+    ]
+  },
+  "hpMsgBufCorrupted": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      2
+    ]
+  },
+  "hpMsgBufFree": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      3
+    ]
+  },
+  "hpMsgBufInit": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      4
+    ]
+  },
+  "hpMsgBufMin": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      5
+    ]
+  },
+  "hpMsgBufMiss": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      6
+    ]
+  },
+  "hpMsgBufSize": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpMsgBufEntry",
+      7
+    ]
+  },
+  "hpPktBufTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF HpPktBufEntry"
+    },
+    "index": null,
+    "value": [
+      "hpPktBuf",
+      1
+    ]
+  },
+  "hpPktBufEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "HpPktBufEntry"
+    },
+    "index": [
+      "hpPktBufSlotIndex"
+    ],
+    "value": [
+      "hpPktBufTable",
+      1
+    ]
+  },
+  "HpPktBufEntry": {
+    "tp": "SEQUENCE"
+  },
+  "hpPktBufSlotIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      1
+    ]
+  },
+  "hpPktBufCorrupted": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      2
+    ]
+  },
+  "hpPktBufFree": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      3
+    ]
+  },
+  "hpPktBufInit": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      4
+    ]
+  },
+  "hpPktBufMin": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      5
+    ]
+  },
+  "hpPktBufMiss": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      6
+    ]
+  },
+  "hpPktBufSize": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpPktBufEntry",
+      7
+    ]
+  },
+  "hpMem": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpOpSystem",
+      2
+    ]
+  },
+  "hpLocalMem": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpMem",
+      1
+    ]
+  },
+  "hpGlobalMem": {
+    "tp": "OBJECT IDENTIFIER",
+    "value": [
+      "hpMem",
+      2
+    ]
+  },
+  "hpLocalMemTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF HpLocalMemEntry"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMem",
+      1
+    ]
+  },
+  "hpLocalMemEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "HpLocalMemEntry"
+    },
+    "index": [
+      "hpLocalMemSlotIndex"
+    ],
+    "value": [
+      "hpLocalMemTable",
+      1
+    ]
+  },
+  "HpLocalMemEntry": {
+    "tp": "SEQUENCE"
+  },
+  "hpLocalMemSlotIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      1
+    ]
+  },
+  "hpLocalMemSlabCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      2
+    ]
+  },
+  "hpLocalMemFreeSegCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      3
+    ]
+  },
+  "hpLocalMemAllocSegCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      4
+    ]
+  },
+  "hpLocalMemTotalBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      5
+    ]
+  },
+  "hpLocalMemFreeBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      6
+    ]
+  },
+  "hpLocalMemAllocBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpLocalMemEntry",
+      7
+    ]
+  },
+  "hpGlobalMemTable": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "SEQUENCE OF HpGlobalMemEntry"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMem",
+      1
+    ]
+  },
+  "hpGlobalMemEntry": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "HpGlobalMemEntry"
+    },
+    "index": [
+      "hpGlobalMemSlotIndex"
+    ],
+    "value": [
+      "hpGlobalMemTable",
+      1
+    ]
+  },
+  "HpGlobalMemEntry": {
+    "tp": "SEQUENCE"
+  },
+  "hpGlobalMemSlotIndex": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      1
+    ]
+  },
+  "hpGlobalMemSlabCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      2
+    ]
+  },
+  "hpGlobalMemFreeSegCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      3
+    ]
+  },
+  "hpGlobalMemAllocSegCnt": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "Counter"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      4
+    ]
+  },
+  "hpGlobalMemTotalBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      5
+    ]
+  },
+  "hpGlobalMemFreeBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      6
+    ]
+  },
+  "hpGlobalMemAllocBytes": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER"
+    },
+    "index": null,
+    "value": [
+      "hpGlobalMemEntry",
+      7
+    ]
+  },
+  "hpSwitchOsVersion": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "index": null,
+    "value": [
+      "hpOpSystem",
+      3
+    ]
+  },
+  "hpSwitchRomVersion": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "DisplayString"
+    },
+    "index": null,
+    "value": [
+      "hpOpSystem",
+      4
+    ]
+  },
+  "hpSwitchSmartCardType": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "INTEGER",
+      "values": {
+        "1": "none",
+        "2": "fddi",
+        "3": "atm",
+        "4": "fddiAndATM",
+        "5": "other"
+      }
+    },
+    "index": null,
+    "value": [
+      "hpOpSystem",
+      5
+    ]
+  },
+  "hpSwitchBaseMACAddress": {
+    "tp": "OBJECT-TYPE",
+    "syntax": {
+      "tp": "MacAddress"
+    },
+    "index": null,
+    "value": [
+      "hpOpSystem",
+      6
+    ]
+  }
+}
