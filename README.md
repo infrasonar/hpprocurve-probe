@@ -22,6 +22,11 @@ Variable            | Default                        | Description
 ```
 docker build -t hpprocurve-probe . --no-cache
 ```
+
+## Config
+
+See the [SNMP probe](https://github.com/infrasonar/snmp-probe#config).
+
 ## Dry run
 
 Available checks:
