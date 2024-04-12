@@ -1,5 +1,6 @@
 from asyncsnmplib.mib.mib_index import MIB_INDEX
 from libprobe.asset import Asset
+from libprobe.exceptions import CheckException
 from ..utils import get_data
 
 QUERIES = (
@@ -15,7 +16,14 @@ async def check_system(
         check_config: dict):
 
     state = await get_data(asset, asset_config, check_config, QUERIES)
-    for item in state.get('hpLocalMemEntry', []):
+    icf_sensor = state.get('hpicfSensorEntry', [])
+    local_mem = state.get('hpLocalMemEntry', [])
+    misc_stat = state.get('hpSwitchMiscStat', [])
+    if not icf_sensor and not local_mem and not misc_stat:
+        raise CheckException('SNMP data retrieval failed; '
+                             'This could indicate an incorrect switch type')
+
+    for item in local_mem:
         total = item.get('hpLocalMemTotalBytes')
         used = item.get('hpLocalMemAllocBytes')
         try:
