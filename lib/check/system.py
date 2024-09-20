@@ -29,7 +29,9 @@ async def check_system(
         total = item.get('hpLocalMemTotalBytes')
         used = item.get('hpLocalMemAllocBytes')
         try:
-            item['hpLocalMemPercentUsed'] = used / total * 100  # type: ignore
+            assert isinstance(total, int)
+            assert isinstance(used, int)
+            item['hpLocalMemPercentUsed'] = used / total * 100
         except Exception:
             pass
 
