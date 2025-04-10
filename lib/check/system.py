@@ -1,7 +1,8 @@
 from asyncsnmplib.mib.mib_index import MIB_INDEX
 from libprobe.asset import Asset
 from libprobe.exceptions import CheckException
-from ..utils import get_data
+from ..snmpclient import get_snmp_client
+from ..snmpquery import snmpquery
 
 QUERIES = (
     MIB_INDEX['HP-ICF-CHASSIS']['hpicfSensorEntry'],
@@ -15,7 +16,8 @@ async def check_system(
         asset_config: dict,
         check_config: dict):
 
-    state = await get_data(asset, asset_config, check_config, QUERIES)
+    snmp = get_snmp_client(asset, asset_config, check_config)
+    state = await snmpquery(snmp, QUERIES)
     icf_sensor = state.get('hpicfSensorEntry', [])
     local_mem = state.get('hpLocalMemEntry', [])
     misc_stat = state.get('hpSwitchMiscStat', [])
@@ -27,6 +29,8 @@ async def check_system(
         total = item.get('hpLocalMemTotalBytes')
         used = item.get('hpLocalMemAllocBytes')
         try:
+            assert isinstance(total, int)
+            assert isinstance(used, int)
             item['hpLocalMemPercentUsed'] = used / total * 100
         except Exception:
             pass
