@@ -5,9 +5,9 @@ from ..snmpclient import get_snmp_client
 from ..snmpquery import snmpquery
 
 QUERIES = (
-    MIB_INDEX['HP-ICF-CHASSIS']['hpicfSensorEntry'],
-    MIB_INDEX['NETSWITCH-MIB']['hpLocalMemEntry'],
-    MIB_INDEX['STATISTICS-MIB']['hpSwitchMiscStat'],
+    (MIB_INDEX['HP-ICF-CHASSIS']['hpicfSensorEntry'], True),
+    (MIB_INDEX['NETSWITCH-MIB']['hpLocalMemEntry'], True),
+    (MIB_INDEX['STATISTICS-MIB']['hpSwitchMiscStat'], False),
 )
 
 
